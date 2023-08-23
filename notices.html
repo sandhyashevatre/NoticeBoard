@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Notices</title>
+</head>
+<body>
+    <h1>Notice Board</h1>
+    <ul>
+        <li th:each="notice : ${notices}">
+			    <form method="post" action="notice">
+                  <label for="notice">First Notice</label>
+                  <input type="submit" value="Notice!">
+                </form>
+            <h2 th:text="${notice.title}"> Notices</h2>
+            <p th:text="${notice.content}"></p>
+            <p>Contact: <span th:text="${notice.contact.name}">Invalid Notice</span></p>
+        </li>
+    </ul>
+</body>
+</html>
