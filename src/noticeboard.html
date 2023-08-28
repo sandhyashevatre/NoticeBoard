@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Notice Board</title>
+	<style>
+		.noticeRow {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 20px;
+		}
+
+		.noticeBox {
+			flex-basis: calc(33.33% - 20px);
+			/* 3 notices in a row */
+			box-sizing: border-box;
+			padding: 10px;
+			border: 1px solid #ccc;
+			margin: 5px;
+			text-align: center;
+
+		}
+
+		.noticeBox h3 {
+			text-align: center;
+			/* Center-align the heading */
+		}
+		.form-container {
+			  display: flex;
+			  justify-content: center;
+			  align-items: center;
+			  height: 70vh; /* Adjust to desired height */
+			}
+
+		  form {
+		    background-color: rgb(173, 216, 230);
+		    border-radius: 50px;
+		    padding: 50px;
+		    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+		    width: 550px;
+		    left: 550px;
+		    position: center;
+		  }
+		
+		  label {
+		    display: block;
+		    font-weight: bold;
+		    margin-bottom: 2px;
+		    position: center;
+		  }
+		
+		  input[type="text"],
+		  input[type="number"] {
+		    width: 100%;
+		    padding: 10px;
+		    border: 1px solid #ccc;
+		    border-radius: 5px;
+		    margin-bottom: 15px;
+		  }
+		
+		  input[type="text"]:focus,
+		  input[type="number"]:focus {
+		    border-color: #3498db;
+		    outline: none;
+		  }
+		
+		  input[type="submit"] {
+		    background-color: #3498db;
+		    color: #fff;
+		    padding: 10px 20px;
+		    border: none;
+		    border-radius: 5px;
+		    cursor: pointer;
+		    font-weight: bold;
+		  }
+		
+		  input[type="submit"]:hover {
+		    background-color: #2980b9;
+		  }
+
+		.loadButton {
+			padding: 8px 12px;
+			background-color: #007bff;
+			color: #fff;
+			border: none;
+			border-radius: 3px;
+			cursor: pointer;
+			text-align: center;
+			width: 100px;
+		}
+
+		h1,h2 {
+			text-align: center;
+			font-size: 2.5 em;
+		}
+		
+        Table {
+            border-collapse: collapse;
+            width: 90%;
+            margin: 50px auto;
+        }
+        .Table td {
+            border: 50px solid rgb(173, 216, 230);
+            padding: 20px;
+            text-align: center;
+        }
+        button {
+            background-color: #a7a4a0;
+            position: relative;
+            left: 320px;
+            top: 70px;
+            border: none;
+            color: white;
+            padding: 4px 8px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px 2px;
+            cursor: pointer;
+}
+	</style>
+</head>
+
+<body>
+		<h1>ENTER YOUR NOTICE</h1>
+<div class="form-container">
+	<form action="noticeboard" method="post">
+		<label for=" title">Notice Title:</label>
+		<input type="text" id="title" name="title" required>
+
+		<label for="content">Notice Content:</label>
+		<textarea id="content" name="content" rows="2" cols="50" required></textarea>
+
+		<label for="name">Name Author:</label>
+		<input type="text" id="name" name="name" required>
+
+		<label for="phone">Contact Number:</label>
+		<input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+		<div>
+			<button type="submit" class="loadButton" name="btn" value="p1">Save Notice</button>
+			<button type="submit" class="loadButton" name="clrbtn" value="clr">Reset Notices</button>
+		</div>
+		
+	</div>
+</form>
+
+	<h2>Notice Board</h2>
+	<div>
+		<div class="Table">
+			  <table>
+			    <thead>
+			      <tr>
+			        <th>Notice</th>
+			        <th>Title</th>
+			        <th>Content</th>
+			        <th>Name</th>
+			        <th>Phone</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+			      <tr>
+			        <td>Notice 1</td>
+			        <td th:text="${Title1}"></td>
+			        <td th:text="${Content1}"></td>
+			        <td th:text="${Name1}"></td>
+			        <td th:text="${Phone1}"></td>
+			      </tr>
+			      <tr>
+			        <td>Notice 2</td>
+			        <td th:text="${Title2}"></td>
+			        <td th:text="${Content2}"></td>
+			        <td th:text="${Name2}"></td>
+			        <td th:text="${Phone2}"></td>
+			      </tr>
+			      <tr>
+			        <td>Notice 3</td>
+			        <td th:text="${Title3}"></td>
+			        <td th:text="${Content3}"></td>
+			        <td th:text="${Name3}"></td>
+			        <td th:text="${Phone3}"></td>
+			      </tr>
+			    </tbody>
+			  </table>
+			</div>
+	</div>
+
+</body>
+
+</html>
